@@ -85,6 +85,7 @@ html {
     -webkit-font-smoothing: antialiased
 }
 
+/* Root Variables with Light & Dark Theme */
 :root {
     cursor: default;
     --color-white: #fff;
@@ -102,7 +103,17 @@ html {
     --static-heading-gradient-pink: #ffcfdf;
     --tech-stack-box-first-color: #1a1a29;
     --tech-stack-box-second-color: rgba(27, 27, 40, 0);
-    --tech-stack-box-border-color: #292929
+    --tech-stack-box-border-color: #292929;
+    --journey-heading-gradient: linear-gradient(45deg, #6bc5f8, #cf59e6);
+    --journey-heading-shadow: 0 0 7px rgba(111, 200, 250, 0.7), 0 0 12px rgba(207, 89, 230, 0.7);
+  
+    /* Journey Section Colors */
+    --journey-bg-dark: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.9));
+    --journey-bg-light: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(220, 220, 220, 0.9));
+    --journey-card-dark: rgba(20, 20, 30, 0.9);
+    --journey-card-light: rgba(255, 255, 255, 0.9);
+    --journey-text-dark: #e0e0e0;
+    --journey-text-light: #fefefe;
 }
 
 #hello-friend,
@@ -187,7 +198,9 @@ html {
     --color-shadowDark: #e2ddd7;
     --tech-stack-box-first-color: #e7e2db;
     --tech-stack-box-second-color: #ece7e100;
-    --tech-stack-box-border-color: #dad5cf
+    --tech-stack-box-border-color: #dad5cf;
+    --journey-heading-gradient: linear-gradient(45deg, #8f00ff, #f9daff);
+    --journey-heading-shadow: 0 0 7px rgba(255, 255, 255, 0.7), 0 0 3px rgba(207, 89, 230, 0.7);
 }
 
 .setting-container {
@@ -1151,6 +1164,7 @@ footer {
 
 .projects-section-container {
     padding: 150px 0;
+    padding-top: 90px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1863,6 +1877,9 @@ footer {
     .project-boxes-div {
         padding: 40px 0
     }
+    .projects-section-container{
+        padding-top: 0px;
+    }
 }
 
 @media screen and (max-width:500px) {
@@ -2017,4 +2034,174 @@ footer {
         margin-top: 100px;  
     }
 }
+
+
+
+
+/* Dark Theme */
+body.dark-theme {
+    --journey-bg: var(--journey-bg-dark);
+    --journey-card-bg: var(--journey-card-dark);
+    --journey-text-color: var(--journey-text-dark);
+  }
+  
+  /* Light Theme */
+  body.light-theme {
+    --journey-bg: var(--journey-bg-light);
+    --journey-card-bg: var(--journey-card-light);
+    --journey-text-color: var(--journey-text-light);
+  }
+  
+  /* --- Journey Section Styles --- */
+  
+  .journey-section-container {
+    width: 100%;
+    min-height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20rem;
+    position: relative;
+    overflow: hidden;
+    background: var(--journey-bg);
+  }
+  
+  /* Center Container */
+  .journey-section {
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+  }
+  
+  /* Roadmap Container */
+  .roadmap-container {
+    position: relative;
+    margin: 6rem 0;
+    padding: 2rem 0;
+    min-height: auto;
+  }
+  
+  /* Neon Line */
+  .neon-line {
+    position: absolute;
+    height: 100%;
+    width: 6px;
+    background: linear-gradient(180deg, #00ffe7, #8f00ff);
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    border-radius: 3px;
+    box-shadow: 0 0 20px rgba(0, 255, 234, 0.9), 0 0 30px rgba(143, 0, 255, 0.7);
+    z-index: 1;
+    opacity: 0;
+  }
+  
+  /* Neon Line Pulse */
+  .neon-line::before {
+    content: "";
+    position: absolute;
+    height: 0%;
+    width: 100%;
+    background: white;
+    left: 0;
+    top: 0;
+    animation: neonPulse 2.5s linear infinite;
+    z-index: 2;
+  }
+  
+  /* Journey Item Setup */
+  .journey-item {
+    position: relative;
+    margin-bottom: 9rem;
+    display: flex;
+    width: 100%;
+    z-index: 3;
+    opacity: 0;
+    visibility: hidden;
+  }
+  
+  /* Side Layout Control */
+  .journey-item.left {
+    justify-content: flex-end;
+  }
+  .journey-item.right {
+    justify-content: flex-start;
+  }
+  
+  /* Journey Dot Setup */
+  .journey-dot {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border: 2px solid #00ffe7;
+    background: transparent;
+    border-radius: 50%;
+    left: 50%;
+    top: 1rem;
+    transform: translateX(-50%) scale(1);
+    box-shadow: 0 0 15px rgba(0, 255, 234, 0.8), 0 0 25px rgba(143, 0, 255, 0.9);
+    z-index: 4;
+  }
+  
+  /* Card Content Styles */
+  .journey-content {
+    width: 40%;
+    background: var(--journey-card-bg);
+    backdrop-filter: blur(8px);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    position: relative;
+    transition: all 0.4s ease;
+    border-left: 3px solid #00ffe7;
+    border-right: 3px solid #8f00ff;
+  }
+  
+  /* Hover Effects */
+  .journey-content:hover {
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.6),
+      0 0 20px rgba(0, 255, 234, 0.4),
+      0 0 35px rgba(143, 0, 255, 0.3);
+  }
+  
+  /* Apply to Journey Heading */
+  .journey-content h3 {
+    margin: 0 0 1rem;
+    font-size: 1.8rem;
+    background: var(--journey-heading-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: var(--journey-heading-shadow);
+  }
+  
+  
+  .journey-content p {
+    margin: 0;
+    line-height: 1.6;
+    color: var(--color-white);
+  }
+  
+  /* Mobile Responsive Adjustments */
+  @media (max-width: 768px) {
+    .journey-content {
+      width: 80%;
+    }
+    .neon-line,
+    .journey-dot {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .journey-content {
+      width: 90%;
+      padding: 1.5rem;
+    }
+    .neon-line,
+    .journey-dot {
+      display: none;
+    }
+  }
 
