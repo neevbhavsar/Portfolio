@@ -13,7 +13,7 @@ Here's your GitHub README file with the necessary replacements and emojis:
 <a href="https://github.com/neevbhavsar/Portfolio/blob/master/LICENSE"><img alt="License" src="http://img.shields.io/:license-mit-blue.svg?style=flat-square?style=flat-square" /></a>  
 
 📸 **Portfolio Preview**  
-<img width="100%" alt="Portfolio Screenshot" src="https://github.com/neevbhavsar/Portfolio/tree/main/src/webp/neevbhavsarporfolio.png">  
+<img width="100%" alt="Portfolio Screenshot" src="https://github.com/neevbhavsar/Portfolio/raw/main/src/webp/neevbhavsarporfolio.png">
 
 🌟 **Star this repository on GitHub — your support is appreciated!**  
 
