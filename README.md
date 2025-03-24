@@ -1,7 +1,3 @@
-Here's your updated GitHub README file with the correct **Live View** link:  
-
----
-
 # 🌐 [My Portfolio](https://animated-3d-portfolio-one.vercel.app/)  
 
 <p align="justify">This website showcases my projects, web presence, story, work experience, and contact information.</p>  
